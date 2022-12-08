@@ -16,10 +16,10 @@ public:
 	//Конструктор с двумя параметрами и основной
 	Reservoir(char* n, char* t) :
 		lenght{ -1 }, width{ -1 }, depth{- 1}, 
-		name{ new char[strlen(n)+1] }, type{ new char[strlen(t)+1] } 
+		name{ new char[125] }, type{ new char[125] } 
 	{
-		strcpy_s(name, strlen(n) + 1, n);
-		strcpy_s(type, strlen(t) + 1, t);
+		strcpy_s(name, strlen(n) + 4, n);
+		strcpy_s(type, strlen(t) + 4, t);
 	};
 	//Конструктом со всем набором параметров
 	Reservoir(char* n,  char* t, int w, int l, int d) : Reservoir(n, t) {
@@ -57,8 +57,8 @@ public:
 	}
 	//Копирование объектов
 	void copyReservoir(Reservoir p) {
-		//delete[]name;
-		//delete[]type;
+		delete[]name;
+		delete[]type;
 		name = new char[strlen(p.name)];
 		type = new char[strlen(p.name)];
 		strcpy_s(name, strlen(p.name) + 1, p.name);
@@ -78,8 +78,8 @@ public:
 	}
 	//Изменение имени и типа водоёма
 	void changeNameType() {
-		//delete[]name;
-		//delete[]type;
+		delete[]name;
+		delete[]type;
 		name = new char[125];
 		type = new char[125];
 		std::cout << "Enter the new name:\n";
@@ -114,19 +114,19 @@ public:
 		depth = d;
 	}
 	void setName(char* n) {
-		//delete[]name;
+		delete[]name;
 		name = new char[126];
 		strcpy_s(name, 136, n);
 	}
 	void setType(char* t) {
-		//delete[]type;
+		delete[]type;
 		type = new char[125];
 		strcpy_s(type, 126, t);
 	}
 
 	~Reservoir() {
-		//delete[]name;
-		//delete[]type;
-	} //Так же вызывает ошибку при удалении массивов
+		delete[]name;
+		delete[]type;
+	} 
 };
 

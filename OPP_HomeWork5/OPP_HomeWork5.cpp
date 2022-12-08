@@ -278,6 +278,7 @@ Reservoir* LoadFromTextFile(Reservoir* arr, int& size) {
 
 int main()
 {
+
 	int size = 0;
 	int user;
 	bool flag = true;
